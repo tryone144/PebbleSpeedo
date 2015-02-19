@@ -5,6 +5,7 @@
 #include <pebble.h>
 #include <math.h>
 #include "connection.h"
+#include "speedoui.h"
 
 static void inbox_received_callback(DictionaryIterator*, void*);
 static void inbox_dropped_callback(AppMessageResult, void*);
@@ -46,6 +47,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
                 APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] HEADING -> %d", (int)t->value->int32);
                 break;
             case KEY_LOC_SPEED:
+                update_speed_layer((int)t->value->int32);
                 APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] SPEED -> %d", (int)t->value->int32);
                 break;
             default:

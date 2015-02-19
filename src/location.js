@@ -22,12 +22,12 @@ function locationSuccess(pos) {
 
     // Assemble dictionary using our keys
     var locationData = {
-        "KEY_LOC_LATITUDE": loc.latitude ? (loc.latitude*100)|0 : -1,
-        "KEY_LOC_LONGITUDE": loc.longitude ? (loc.longitude*100)|0 : -1,
+        "KEY_LOC_LATITUDE": loc.latitude ? Math.round(loc.latitude*100)|0 : -1,
+        "KEY_LOC_LONGITUDE": loc.longitude ? Math.round(loc.longitude*100)|0 : -1,
         "KEY_LOC_ALTITUDE": loc.altitude ? loc.altitude|0 : -1,
         "KEY_LOC_ACCURACY": loc.accuracy ? loc.accuracy|0 : -1,
         "KEY_LOC_HEADING": loc.heading ? loc.heading|0 : -1,
-        "KEY_LOC_SPEED": loc.speed ? loc.speed|0 : -1
+        "KEY_LOC_SPEED": loc.speed ? Math.round(loc.speed)|0 : -1
     };
 
     // Send to Pebble
