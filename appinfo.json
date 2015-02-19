@@ -1,0 +1,28 @@
+{
+    "appKeys": {
+        "KEY_LOC_ACCURACY": 3,
+        "KEY_LOC_ALTITUDE": 2,
+        "KEY_LOC_HEADING": 4,
+        "KEY_LOC_LATITUDE": 0,
+        "KEY_LOC_LONGITUDE": 1,
+        "KEY_LOC_SPEED": 5,
+        "KEY_START_LOCATION": 16,
+        "KEY_STOP_LOCATION": 17
+    },
+    "capabilities": [
+        "location"
+    ],
+    "companyName": "Bernd Busse",
+    "longName": "Speedometer",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "shortName": "Speedo",
+    "uuid": "5a1fa427-2dae-48a9-b76c-be297e731cc5",
+    "versionCode": 1,
+    "versionLabel": "0.1",
+    "watchapp": {
+        "watchface": false
+    }
+}
