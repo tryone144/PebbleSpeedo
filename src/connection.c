@@ -38,17 +38,16 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
                 APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] LONGITUDE -> %d.%02d", (int)t->value->int32 / 100, abs((int)t->value->int32) % 100);
                 break;
             case KEY_LOC_ALTITUDE:
-                APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] ALTITUDE -> %d", (int)t->value->int32);
+                update_altitude_layer((int)t->value->int32);
                 break;
             case KEY_LOC_ACCURACY:
                 APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] ACCURACY -> %d", (int)t->value->int32);
                 break;
             case KEY_LOC_HEADING:
-                APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] HEADING -> %d", (int)t->value->int32);
+                update_heading_layer((int)t->value->int32);
                 break;
             case KEY_LOC_SPEED:
                 update_speed_layer((int)t->value->int32);
-                APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] SPEED -> %d", (int)t->value->int32);
                 break;
             default:
                 APP_LOG(APP_LOG_LEVEL_ERROR, "[SPEEDO.c] Key %d not recognized!", (int)t->key);

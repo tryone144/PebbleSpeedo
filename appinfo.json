@@ -16,7 +16,26 @@
     "longName": "Speedometer",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "characterRegex": "[\\d]",
+                "file": "fonts/UbuntuMono-B.ttf",
+                "name": "FONT_UBUNTU_MONO_BOLD_52",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[\\w]",
+                "file": "fonts/UbuntuMono-R.ttf",
+                "name": "FONT_UBUNTU_MONO_REGULAR_11",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[\\d]",
+                "file": "fonts/UbuntuMono-R.ttf",
+                "name": "FONT_UBUNTU_MONO_REGULAR_32",
+                "type": "font"
+            }
+        ]
     },
     "shortName": "Speedo",
     "uuid": "5a1fa427-2dae-48a9-b76c-be297e731cc5",

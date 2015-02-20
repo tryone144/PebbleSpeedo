@@ -17,21 +17,29 @@ var locationOptions = {
 function locationSuccess(pos) {
     console.log('[SPEEDO.js] Location update!');
     
-    var loc = pos.coords;
-    console.log(JSON.stringify(loc));
+    var location = pos.coords;
+    console.log(JSON.stringify(location));
 
+    // Convert values
+    var latitude = location.latitude ? Math.round(location.latitude * 100) | 0 : -1; // Latitude in Decimal Degrees (negative means south) -> Keep prec. 2
+    var longitude = location.longitude ? Math.round(location.longitude * 100) | 0 : -1; // Longitude in Decimal Degrees (negative means east) -> Keep prec. 2
+    var altitude = location.altitude ? Math.round(location.altitude) | 0 : -1; // Altitude in Meters above WGS84 Elipsoid
+    var accuracy = location.accuracy ? Math.round(location.accuracy) | 0 : -1; // Coordinates Accuracy in Meters
+    var heading = location.heading ? Math.round(location.heading) | 0: -1; // Heading in Degrees relative to True North
+    var speed = location.speed ? Math.round(location.speed * 3.6) | 0: -1; // Speed in Kilometers per Second
+    
     // Assemble dictionary using our keys
-    var locationData = {
-        "KEY_LOC_LATITUDE": loc.latitude ? Math.round(loc.latitude*100)|0 : -1,
-        "KEY_LOC_LONGITUDE": loc.longitude ? Math.round(loc.longitude*100)|0 : -1,
-        "KEY_LOC_ALTITUDE": loc.altitude ? loc.altitude|0 : -1,
-        "KEY_LOC_ACCURACY": loc.accuracy ? loc.accuracy|0 : -1,
-        "KEY_LOC_HEADING": loc.heading ? loc.heading|0 : -1,
-        "KEY_LOC_SPEED": loc.speed ? Math.round(loc.speed)|0 : -1
+    var locDict = {
+        "KEY_LOC_LATITUDE": latitude,
+        "KEY_LOC_LONGITUDE": longitude,
+        "KEY_LOC_ALTITUDE": altitude,
+        "KEY_LOC_ACCURACY": accuracy,
+        "KEY_LOC_HEADING": heading,
+        "KEY_LOC_SPEED": speed
     };
 
     // Send to Pebble
-    Pebble.sendAppMessage(locationData, function(e) {
+    Pebble.sendAppMessage(locDict, function(e) {
         console.log("[SPEEDO.js] Location data sent to Pebble successfully!");
     }, function(e) {
         console.log("[SPEEDO.js] Error sending location data to Pebble!");
