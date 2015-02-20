@@ -3,7 +3,6 @@
  * (c) 2015 Bernd Busse
  */
 #include <pebble.h>
-#include <math.h>
 #include "connection.h"
 #include "speedoui.h"
 
@@ -32,10 +31,10 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
         // Which key was received?
         switch (t->key) {
             case KEY_LOC_LATITUDE:
-                APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] LATITUDE -> %d.%02d", (int)t->value->int32 / 100, abs((int)t->value->int32) % 100);
+                update_latitude_layer((int)t->value->int32);
                 break;
             case KEY_LOC_LONGITUDE:
-                APP_LOG(APP_LOG_LEVEL_DEBUG, "[SPEEDO.c] LONGITUDE -> %d.%02d", (int)t->value->int32 / 100, abs((int)t->value->int32) % 100);
+                update_longitude_layer((int)t->value->int32);
                 break;
             case KEY_LOC_ALTITUDE:
                 update_altitude_layer((int)t->value->int32);

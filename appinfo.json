@@ -18,19 +18,29 @@
     "resources": {
         "media": [
             {
+                "file": "images/speedobackground.png",
+                "name": "IMAGE_BACKGROUND",
+                "type": "png"
+            },
+            {
                 "characterRegex": "[\\d]",
                 "file": "fonts/UbuntuMono-B.ttf",
                 "name": "FONT_UBUNTU_MONO_BOLD_52",
                 "type": "font"
             },
             {
-                "characterRegex": "[\\w]",
+                "characterRegex": "[\\w/ ]",
                 "file": "fonts/UbuntuMono-R.ttf",
                 "name": "FONT_UBUNTU_MONO_REGULAR_11",
                 "type": "font"
             },
             {
-                "characterRegex": "[\\d]",
+                "file": "fonts/UbuntuMono-R.ttf",
+                "name": "FONT_UBUNTU_MONO_REGULAR_14",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[\\d\\-. ]",
                 "file": "fonts/UbuntuMono-R.ttf",
                 "name": "FONT_UBUNTU_MONO_REGULAR_32",
                 "type": "font"

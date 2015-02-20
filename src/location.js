@@ -26,7 +26,7 @@ function locationSuccess(pos) {
     var altitude = location.altitude ? Math.round(location.altitude) | 0 : -1; // Altitude in Meters above WGS84 Elipsoid
     var accuracy = location.accuracy ? Math.round(location.accuracy) | 0 : -1; // Coordinates Accuracy in Meters
     var heading = location.heading ? Math.round(location.heading) | 0: -1; // Heading in Degrees relative to True North
-    var speed = location.speed ? Math.round(location.speed * 3.6) | 0: -1; // Speed in Kilometers per Second
+    var speed = location.speed ? Math.round(location.speed * 3.6) | 0: 0; // Speed in Kilometers per Second
     
     // Assemble dictionary using our keys
     var locDict = {
